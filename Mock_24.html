@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DSSSB JSA Chemistry 2026 Part B – Mock Test 24</title>
+<style>
+:root{
+  --blue:#17365D;--blue2:#0F2745;--light:#F4F6F8;--line:#D5DAE1;
+  --text:#1B1F24;--muted:#69717D;--green:#198754;--red:#C0392B;
+  --orange:#F0A500;--purple:#6F42C1;--white:#fff;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--light);color:var(--text)}
+button,input{font:inherit}
+.hidden{display:none!important}
+.top{background:var(--blue);color:#fff;min-height:64px;display:flex;align-items:center;padding:10px 22px}
+.top-inner{width:min(1180px,100%);margin:auto;display:flex;justify-content:space-between;align-items:center;gap:18px}
+.gov-title{font-weight:700;font-size:18px}.exam-title{font-size:13px;opacity:.86;margin-top:4px}
+.candidate-top{text-align:right;font-size:13px}.candidate-top b{display:block;font-size:14px}
+.wrap{width:min(1180px,100%);margin:0 auto;padding:24px 18px}
+.card{background:#fff;border:1px solid var(--line);border-radius:6px;box-shadow:0 1px 2px rgba(0,0,0,.05)}
+.welcome{padding:36px;max-width:850px;margin:28px auto}
+.welcome h1{font-size:30px;color:var(--blue);margin:0 0 7px}
+.welcome h2{font-size:18px;font-weight:600;margin:0 0 25px;color:#4b5563}
+.field{margin:20px 0}.field label{display:block;font-weight:700;margin-bottom:8px}
+.field input{width:100%;padding:13px;border:1px solid #AEB6C1;border-radius:4px;font-size:16px}
+.btn{border:0;border-radius:4px;padding:11px 22px;font-weight:700;cursor:pointer}
+.btn-primary{background:var(--blue);color:#fff}.btn-primary:hover{background:var(--blue2)}
+.btn-light{background:#fff;border:1px solid #AEB6C1;color:#333}.btn-danger{background:var(--red);color:#fff}
+.instructions{max-width:950px;margin:22px auto;padding:30px}
+.instructions h2{color:var(--blue);margin-top:0}
+.instructions ol{line-height:1.7;padding-left:24px}
+.exam-info{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:20px 0}
+.info{background:#F7F8FA;border:1px solid var(--line);padding:14px;border-radius:4px}
+.info b{display:block;font-size:18px;color:var(--blue);margin-top:4px}
+.check{display:flex;gap:9px;align-items:center;margin:22px 0;font-size:14px}
+.exam-head{background:#fff;border-bottom:1px solid var(--line);padding:10px 18px;position:sticky;top:0;z-index:10}
+.exam-head-inner{width:min(1180px,100%);margin:auto;display:flex;justify-content:space-between;align-items:center}
+.timer{background:#FFF3CD;border:1px solid #E7C35C;color:#664D03;padding:8px 15px;border-radius:4px;font-size:19px;font-weight:700;min-width:100px;text-align:center}
+.timer.danger{background:#F8D7DA;color:#842029;border-color:#F1AEB5}
+.exam-grid,.exam-layout{width:min(1180px,100%);margin:16px auto;display:grid;grid-template-columns:1fr 290px;gap:16px;padding:0 18px}
+.question-card{padding:25px;min-height:510px}.q-meta{font-weight:700;color:var(--blue);margin-bottom:15px}.question-text{font-size:17px;line-height:1.55;font-weight:600;margin-bottom:24px}.nav-buttons{display:flex;gap:8px;margin-top:28px;border-top:1px solid var(--line);padding-top:18px;flex-wrap:wrap}
+.qno{font-weight:700;color:var(--blue);margin-bottom:15px}
+.question{font-size:17px;line-height:1.55;font-weight:600;margin-bottom:24px}
+.options{display:grid;gap:11px}
+.option{display:flex;gap:12px;align-items:flex-start;border:1px solid #C9CED6;border-radius:4px;padding:13px;background:#fff;cursor:pointer}
+.option:hover{background:#F7F9FB}.option.selected{background:#EAF1F8;border-color:var(--blue)}
+.radio{width:24px;height:24px;border:1px solid #8D96A3;border-radius:50%;display:flex;align-items:center;justify-content:center;flex:none;font-weight:700;font-size:12px}
+.selected .radio{background:var(--blue);border-color:var(--blue);color:#fff}
+.controls{display:flex;justify-content:space-between;gap:8px;margin-top:28px;border-top:1px solid var(--line);padding-top:18px;flex-wrap:wrap}
+.controls-left,.controls-right{display:flex;gap:8px;flex-wrap:wrap}
+.side,.palette-card{padding:16px;position:sticky;top:82px;height:max-content}
+.side h3{margin:0 0 12px;color:var(--blue);font-size:16px}
+.status{display:grid;grid-template-columns:1fr 1fr;gap:8px;font-size:11px;margin-bottom:14px}
+.status div{display:flex;align-items:center;gap:6px}.dot{width:14px;height:14px;border:1px solid #AEB6C1;border-radius:2px;background:#fff}.answered{background:var(--green)!important;border-color:var(--green)!important}.marked{background:var(--purple)!important;border-color:var(--purple)!important}.visited{background:#F8D7DA!important;border-color:#F1AEB5!important}
+.palette{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;max-height:390px;overflow:auto;padding-right:2px}
+.pal{height:35px;border:1px solid #C9CED6;background:#fff;border-radius:3px;font-size:11px;font-weight:700;cursor:pointer}.pal.current{outline:2px solid var(--blue);outline-offset:1px}.pal.ans{background:var(--green);color:#fff;border-color:var(--green)}.pal.mark{background:var(--purple);color:#fff;border-color:var(--purple)}.pal.vis{background:#F8D7DA;color:#842029}
+.submit-side{margin-top:15px;width:100%}
+.result{max-width:1050px;margin:25px auto}.result-hero{background:var(--blue);color:#fff;padding:28px;border-radius:6px;display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+.score{font-size:46px;font-weight:700}.score small{font-size:18px;opacity:.8}
+.metrics{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin:16px 0}.metric{padding:17px;background:#fff;border:1px solid var(--line);border-radius:5px}.metric b{display:block;font-size:23px;color:var(--blue)}.metric span{font-size:12px;color:var(--muted)}
+.review{padding:22px}.review h2{color:var(--blue);margin-top:0}.review-item{border:1px solid var(--line);border-radius:5px;margin:12px 0;padding:17px;background:#fff}.review-q{font-weight:700;line-height:1.5}.review-opt{padding:7px 9px;font-size:14px}.correct{color:var(--green);font-weight:700}.wrong{color:var(--red);font-weight:700}.explanation{margin-top:10px;background:#F6F8FA;padding:10px;border-radius:4px;color:#555;font-size:13px}
+.history{max-width:900px;margin:25px auto;padding:25px}.history-row{display:flex;justify-content:space-between;padding:13px;border-bottom:1px solid var(--line)}
+@media(max-width:800px){.exam-grid,.exam-layout{grid-template-columns:1fr}.side{position:static}.exam-info,.metrics{grid-template-columns:1fr 1fr}.welcome,.instructions{padding:20px}.question-card{padding:18px}.top-inner{align-items:flex-start}.candidate-top{display:none}}
+
+/* Leaderboard */
+.leaderboard-card{margin-top:18px;background:#fff;border:1px solid #dfe5ee;border-radius:14px;overflow:hidden;box-shadow:0 8px 24px rgba(16,24,40,.06)}
+.lb-head{padding:18px 20px;background:linear-gradient(135deg,#0b3b73,#1769aa);color:#fff;display:flex;justify-content:space-between;align-items:center;gap:15px;flex-wrap:wrap}
+.lb-head h2{margin:0;font-size:20px}
+.lb-sub{font-size:13px;opacity:.9;margin-top:4px}
+.lb-stats{display:flex;gap:10px;flex-wrap:wrap}
+.lb-stat{background:rgba(255,255,255,.12);padding:9px 12px;border-radius:9px;text-align:center;min-width:88px}
+.lb-stat b{display:block;font-size:18px}.lb-stat span{font-size:11px;opacity:.9}
+.my-rank{padding:18px 20px;background:#f7fafc;border-bottom:1px solid #e5eaf0}
+.my-rank-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.rank-box{background:#fff;border:1px solid #dfe5ee;border-radius:10px;padding:12px;text-align:center}
+.rank-box b{display:block;font-size:22px;color:#0b3b73}.rank-box span{font-size:12px;color:#64748b}
+.lb-table-wrap{overflow-x:auto}.lb-table{width:100%;border-collapse:collapse;min-width:620px}
+.lb-table th,.lb-table td{padding:12px 14px;border-bottom:1px solid #edf0f4;text-align:left;font-size:13px}
+.lb-table th{background:#f8fafc;color:#475569;font-weight:700}
+.lb-table tr.me{background:#eef7ff;font-weight:700}
+.lb-rank{font-weight:800;color:#0b3b73}
+.lb-note{padding:12px 20px;color:#64748b;font-size:12px;border-top:1px solid #edf0f4}
+.lb-empty{padding:25px;text-align:center;color:#64748b}
+.lb-online{display:inline-flex;align-items:center;gap:6px;font-size:11px;padding:5px 8px;border-radius:999px;background:#ecfdf3;color:#166534}
+.lb-local{background:#fff7ed;color:#9a3412}
+@media(max-width:700px){.my-rank-grid{grid-template-columns:repeat(2,1fr)}}
+
+</style>
+
+<style>
+.branding{font-weight:900;color:#0b3b73}.brand-sub{font-size:12px;color:#64748b}
+.admin-panel{position:fixed;inset:0;background:rgba(15,23,42,.6);z-index:9999;display:flex;align-items:center;justify-content:center;padding:20px}
+.admin-box{background:#fff;width:min(1100px,96vw);max-height:90vh;overflow:auto;border-radius:16px}
+.admin-head{background:#0b3b73;color:#fff;padding:16px 20px;display:flex;justify-content:space-between}.admin-head button{background:none;border:0;color:#fff;font-size:25px}
+.admin-body{padding:20px}.admin-table{width:100%;border-collapse:collapse;min-width:760px}.admin-table th,.admin-table td{padding:10px;border-bottom:1px solid #e5e7eb;text-align:left;font-size:13px}.admin-table th{background:#f8fafc}
+.admin-table-wrap{overflow:auto}.admin-rank{font-weight:900;color:#0b3b73}.admin-login{max-width:400px;margin:30px auto}
+.admin-login input{width:100%;box-sizing:border-box;padding:11px;margin:8px 0 12px;border:1px solid #cbd5e1;border-radius:8px}
+.lb-card{margin-top:18px;border:1px solid #dbe3ec;border-radius:14px;overflow:hidden}.lb-head{background:linear-gradient(135deg,#0b3b73,#1769aa);color:white;padding:18px}.lb-head h2{margin:0}.lb-table{width:100%;border-collapse:collapse}.lb-table th,.lb-table td{padding:10px;border-bottom:1px solid #edf0f4;text-align:left}.lb-table th{background:#f8fafc}.me{background:#eef7ff;font-weight:700}
+</style>
+</head>
+
+<body><div id="localServerNotice" style="display:none;background:#fff4e5;border-bottom:1px solid #f0c36d;color:#7a4b00;padding:10px 14px;font:600 13px Arial;text-align:center;position:sticky;top:0;z-index:9999">For the shared leaderboard, open this HTML through <b>http://localhost</b>, not directly as a <b>file://</b> page.</div>
+<header id="topbar" class="topbar hidden">
+ <div><div class="branding">The Sarkari Scholar</div><div class="brand-sub">DSSSB JSA Chemistry • Part B • Mock Test 24</div></div>
+ <div><span id="topName"></span> <span class="timer" id="timer">60:00</span></div>
+</header>
+
+<section id="candidate" class="wrap">
+ <div class="card candidate-card">
+  <div class="branding" style="font-size:25px">The Sarkari Scholar</div>
+  <div class="brand-sub">DSSSB JSA Chemistry 2026 • Part B</div>
+  <h1>Domain-Specific Mock Test – 24</h1>
+  <p>100 Questions • 100 Marks • 60 Minutes</p>
+  <label><b>Name of Student</b></label>
+  <input id="studentName" type="text" placeholder="Enter your full name">
+  <div style="margin-top:14px;display:flex;gap:10px;flex-wrap:wrap">
+   <button class="btn btn-primary" onclick="continueExam()">Continue</button>
+   <button class="btn" onclick="openAdmin()">Admin Leaderboard</button>
+  </div>
+  <p class="brand-sub">Admin can view all student ranks without attempting the mock.</p>
+ </div>
+</section>
+
+<section id="instructions" class="wrap hidden">
+ <div class="card">
+  <div class="branding">The Sarkari Scholar</div><h2>General Instructions</h2>
+  <ol>
+   <li>Total Questions: 100</li><li>Maximum Marks: 100</li><li>Time Allowed: 60 minutes</li>
+   <li>Each question carries 1 mark.</li><li>Negative marking: 0.25 for every incorrect answer.</li>
+   <li>No negative marking for unanswered questions.</li><li>Each question has four alternatives and one correct answer.</li>
+   <li>Navigation, review and marking are available.</li><li>Score = Correct Answers − (Wrong Answers × 0.25).</li>
+  </ol>
+  <label><input id="agree" type="checkbox"> I have read and understood the instructions.</label>
+  <button id="startBtn" class="btn btn-primary" disabled onclick="startExam()">Start Mock Test</button>
+ </div>
+</section>
+
+<section id="exam" class="wrap hidden">
+ <div class="exam-layout">
+  <main class="card question-card">
+   <div class="q-meta"><span id="qno"></span><span id="reviewBadge"></span></div>
+   <div id="qtext" class="question-text"></div><div id="options" class="options"></div>
+   <div class="nav-buttons">
+    <button class="btn" onclick="prevQ()">Previous</button><button class="btn" onclick="clearAns()">Clear Response</button>
+    <button class="btn" onclick="markNext()">Mark for Review & Next</button><button class="btn btn-primary" onclick="nextQ()">Save & Next</button>
+   </div>
+  </main>
+  <aside class="card palette-card"><h3>Question Palette</h3><div id="palette" class="palette"></div><button class="btn btn-danger" onclick="submitConfirm()">Submit Test</button></aside>
+ </div>
+</section>
+
+<section id="result" class="wrap hidden">
+ <div class="card">
+  <div class="branding">The Sarkari Scholar</div><h2>Domain-Specific Mock Test 24 — Result</h2><p id="resultName"></p>
+  <div class="result-hero"><div><div class="score" id="score"></div><div>Final Score</div></div></div>
+  <div class="metrics"><div class="metric"><b id="attempted"></b><span>Attempted</span></div><div class="metric"><b id="correct"></b><span>Correct</span></div><div class="metric"><b id="wrong"></b><span>Incorrect</span></div><div class="metric"><b id="skipped"></b><span>Unattempted</span></div><div class="metric"><b id="accuracy"></b><span>Accuracy</span></div></div>
+  <div class="lb-card"><div class="lb-head"><h2>🏆 Mock Test - 24 — Complete Leaderboard</h2><p>Rank is based on score, then correct answers, then time.</p></div>
+   <div class="metrics"><div class="metric"><b id="myRank">—</b><span>Your Rank</span></div><div class="metric"><b id="totalParticipants">—</b><span>Total Participants</span></div><div class="metric"><b id="percentile">—</b><span>Percentile</span></div><div class="metric"><b id="timeTaken">—</b><span>Time Taken</span></div></div>
+   <div style="padding:10px 0"><button class="btn" onclick="refreshRemote()">↻ Refresh Complete Leaderboard</button></div><div style="overflow:auto;max-height:520px"><table class="lb-table"><thead><tr><th>Rank</th><th>Student Name</th><th>Score</th><th>Correct</th><th>Wrong</th><th>Time</th></tr></thead><tbody id="leaderboardBody"></tbody></table></div>
+  </div>
+  <div class="card review"><h2>Question-wise Review</h2><div id="review"></div></div>
+ </div>
+</section>
+
+<div id="adminPanel" class="admin-panel hidden"><div class="admin-box">
+ <div class="admin-head"><b>Admin • Mock Test - 24 — Complete Leaderboard</b><button onclick="closeAdmin()">×</button></div>
+ <div id="adminBody" class="admin-body"></div>
+</div></div>
+
+<script>
+
+// ===== CENTRAL LEADERBOARD CONFIG =====
+const SUPABASE_URL="https://nujvbstqnlfobcvuzbca.supabase.co";
+const SUPABASE_PUBLISHABLE_KEY="sb_publishable_h1w3rcsndXiJnWNF6-YwpA_xTVzZtaG";
+const MOCK_ID="CHEM-24"; // Unique leaderboard namespace for Chemistry Mock 24
+const API_TIMEOUT_MS=10000;
+const PAGE_SIZE=1000;
+
+function centralReady(){
+  return SUPABASE_URL==="https://nujvbstqnlfobcvuzbca.supabase.co" &&
+         typeof SUPABASE_PUBLISHABLE_KEY==="string" &&
+         SUPABASE_PUBLISHABLE_KEY.indexOf("sb_publishable_")===0;
+}
+
+async function apiFetch(path, options){
+  options=options||{};
+  if(!centralReady()) throw new Error("Central leaderboard is not configured.");
+  const url=SUPABASE_URL+"/rest/v1/"+path;
+  const controller=new AbortController();
+  const timer=setTimeout(()=>controller.abort(),API_TIMEOUT_MS);
+  try{
+    // Use the Supabase publishable key as the API key.  The Authorization
+    // header is intentionally omitted to reduce browser preflight issues
+    // when this HTML is served from localhost or another static host.
+    const headers=Object.assign({
+      "apikey":SUPABASE_PUBLISHABLE_KEY,
+      "Content-Type":"application/json",
+      "Accept":"application/json"
+    },options.headers||{});
+    const fetchOptions=Object.assign({},options,{
+      headers:headers,
+      mode:"cors",
+      credentials:"omit",
+      cache:"no-store",
+      signal:controller.signal
+    });
+    const res=await fetch(url,fetchOptions);
+    const text=await res.text();
+    let data=null;
+    try{data=text?JSON.parse(text):null}catch(e){data=text;}
+    if(!res.ok){
+      const msg=(data&&data.message)||data||("HTTP "+res.status);
+      throw new Error("Supabase HTTP "+res.status+": "+msg);
+    }
+    return data;
+  }catch(e){
+    if(e.name==="AbortError") throw new Error("Supabase request timed out after 10 seconds.");
+    if(e instanceof TypeError && /fetch/i.test(e.message||"")){
+      const protocol=location.protocol;
+      if(protocol==="file:"){
+        throw new Error("Browser blocked the Supabase connection from a file:// page. Open this mock through http://localhost (not by double-clicking the HTML). See the included local-server instructions.");
+      }
+      throw new Error("Could not reach Supabase. Check internet access, browser extensions/firewall, and the Supabase project URL/key. Browser error: "+(e.message||"Failed to fetch"));
+    }
+    throw e;
+  }finally{clearTimeout(timer);}
+}
+
+// Exam state (required by the question renderer)
+let i = 0;
+let student = "";
+let start = 0;
+let seconds = 3600;
+let timer = null;
+let record = null;
+let answers = Array(100).fill(null);
+let marked = Array(100).fill(false);
+let visited = Array(100).fill(false);
+
+const QUESTIONS=[{"q":"Which reagent is commonly used to precipitate sulphate ions for gravimetric estimation?","o":["AgNO₃","Na₂S₂O₃","BaCl₂","NH₄SCN"],"a":2},{"q":"Molarity is the number of moles of solute per:","o":["Litre of solvent only","Gram of solution","Litre of solution","Kilogram of solvent"],"a":2},{"q":"Which apparatus is designed to deliver an accurate fixed volume?","o":["Beaker","Volumetric pipette","Conical flask","Watch glass"],"a":1},{"q":"A 2.0 M solution is diluted to 0.20 M to make 250 mL. Stock solution required is:","o":["100 mL","10 mL","25 mL","50 mL"],"a":2},{"q":"Which indicator is often suitable for a strong acid–strong base titration?","o":["Phenolphthalein only in every case","Methyl orange only in every case","Starch solution","Either phenolphthalein or methyl orange may be suitable"],"a":3},{"q":"A good gravimetric precipitate should be:","o":["Highly soluble and gelatinous","Of known composition and sufficiently insoluble","Volatile at room temperature","Chemically variable during weighing"],"a":1},{"q":"Calibration of a balance with traceable weights chiefly helps control:","o":["All contamination","Sample identity error","Sampling heterogeneity","Systematic weighing error"],"a":3},{"q":"A desiccator is used after drying a precipitate to:","o":["Increase moisture","Cool it while limiting moisture uptake","Change oxidation state","Dissolve it"],"a":1},{"q":"Chromatography separates components through differences in their distribution between:","o":["Stationary and mobile phases","Two electrodes only","Two balances","Two gas burners"],"a":0},{"q":"In TLC, Rf is the ratio of spot travel distance to:","o":["Plate width","Solvent-front travel distance","Time of development","Spot diameter"],"a":1},{"q":"Which GC detector is widely used for many organic compounds and employs a flame?","o":["Refractive-index detector","Thermal conductivity detector","UV detector","Flame ionisation detector"],"a":3},{"q":"A guard column in HPLC primarily:","o":["Replaces the detector","Protects the analytical column from contaminants","Measures sample mass","Sets sample pH automatically"],"a":1},{"q":"Normal-phase chromatography commonly uses which stationary phase?","o":["Polar silica","Liquid water only","Pure gaseous nitrogen","Non-polar C18"],"a":0},{"q":"The partition coefficient describes the equilibrium distribution of a solute between:","o":["Two wavelengths","Two phases","Two isotopes","Two oxidation states only"],"a":1},{"q":"TLC spots may be visualised under UV when compounds:","o":["Absorb UV or quench a fluorescent indicator","Are radioactive","Have no chromophores","Are gases only"],"a":0},{"q":"Which technique is suitable for volatile, thermally stable organic compounds?","o":["Potentiometry","Gas chromatography","Gravimetric filtration","Paper electrophoresis"],"a":1},{"q":"Smaller packing particles in HPLC can improve efficiency but commonly:","o":["Stop flow","Remove the stationary phase","Increase backpressure","Eliminate retention"],"a":2},{"q":"A diode-array UV detector can record:","o":["Absorbance at multiple wavelengths","Only sample mass","Only boiling point","Only pH"],"a":0},{"q":"Molecular vibrational absorption is measured using:","o":["Flame photometry","Gravimetry","Conductometry only","IR spectroscopy"],"a":3},{"q":"The IR fingerprint region is useful because it often provides:","o":["Only molecular mass","A complex pattern for comparison","Identical spectra for all compounds","No structural information"],"a":1},{"q":"A spectrophotometric blank compensates primarily for:","o":["Sample collection location","Sample boiling point","Solvent/reagent background","Atomic mass"],"a":2},{"q":"ICP-OES measures light emitted by:","o":["A glass electrode","Excited atoms or ions in a plasma","A TLC plate","A stationary phase"],"a":1},{"q":"Atomic absorption spectroscopy is commonly used for:","o":["Crystal structure alone","Protein sequencing","Boiling-point analysis","Selected elemental concentrations"],"a":3},{"q":"In Raman spectroscopy, the laser serves as the:","o":["Reference electrode","Stationary phase","Excitation source","Titrant"],"a":2},{"q":"Isotopic composition in a mass spectrum is inferred partly from:","o":["Baseline colour","Isotope peak patterns","Column diameter","Sample pH alone"],"a":1},{"q":"When present, a molecular ion peak can indicate molecular:","o":["Optical rotation only","Mass","Boiling point only","Collection site"],"a":1},{"q":"Which ionisation method suits many polar, thermally labile biomolecules in LC–MS?","o":["Flame ionisation","Spark ignition","Electron capture only","Electrospray ionisation"],"a":3},{"q":"Tandem mass spectrometry commonly provides structural information by analysing:","o":["Sample colour","Chromatographic plate count","Only solution pH","Product ions from a selected precursor"],"a":3},{"q":"X-ray fluorescence is commonly used for:","o":["pH measurement","Drug metabolism","Protein sequencing","Elemental analysis"],"a":3},{"q":"Ion-exchange retention is strongly affected by analyte charge and:","o":["Balance pan size","Odour","Mobile-phase pH/ionic strength","Container colour"],"a":2},{"q":"A C18 reversed-phase column tends to retain a hydrophobic analyte more strongly when:","o":["The detector is switched off","The stationary phase is absent","Other conditions favour hydrophobic partitioning","The analyte is always fully ionised"],"a":2},{"q":"Karl Fischer titration is commonly used to determine:","o":["Water content","Octane number","Protein concentration","Chloride isotope ratio"],"a":0},{"q":"A buffer generally contains:","o":["Only strong acid","Only pure water","A weak acid/base and its conjugate partner","A gas and precipitate"],"a":2},{"q":"At equivalence in a titration, reactants have been combined in:","o":["Equal volumes in every case","Equal densities","Equal masses in every case","Stoichiometrically equivalent amounts"],"a":3},{"q":"An acid–base indicator transition range is related to its:","o":["Container shape","Molecular smell","pKa","Magnetic field"],"a":2},{"q":"The oxidation number of Mn in KMnO₄ is:","o":["+2","+7","+4","+6"],"a":1},{"q":"A Brønsted–Lowry base is a:","o":["Proton donor only","Neutron donor","Electron-pair acceptor only","Proton acceptor"],"a":3},{"q":"Which ligand is bidentate?","o":["NH₃","Ethylenediamine","Cl⁻","H₂O"],"a":1},{"q":"The coordination number of Co in [Co(en)₃]³⁺ is:","o":["9","6","3","4"],"a":1},{"q":"Paramagnetism is associated with:","o":["Unpaired electrons","All electrons paired","No metal present","Colourlessness only"],"a":0},{"q":"A catalyst generally:","o":["Changes reaction enthalpy","Provides an alternative pathway","Is consumed stoichiometrically","Changes equilibrium constant"],"a":1},{"q":"For an exothermic equilibrium, raising temperature generally favours:","o":["Reactants","Neither side under any condition","Only solids","Products"],"a":0},{"q":"A rate constant usually increases with temperature because:","o":["More molecules can overcome the activation barrier","Activation energy becomes infinite","Molecules stop colliding","Equilibrium constant must be one"],"a":0},{"q":"A balanced chemical equation conserves:","o":["Gas volume at all conditions","Number of phases","Atoms of each element","Number of molecules always"],"a":2},{"q":"Which species is a nucleophile?","o":["BF₃","AlCl₃","H⁺","OH⁻"],"a":3},{"q":"Benzene commonly undergoes substitution because it:","o":["Reacts only as a gas","Needs no electrophile","Can retain aromatic stabilisation","Must lose aromaticity permanently"],"a":2},{"q":"The characteristic functional group of an aldehyde is:","o":["–NH₂","–O–","–COOH","–CHO"],"a":3},{"q":"Which reagent is commonly used to distinguish many aldehydes from ketones?","o":["Iodine solution for starch","Tollens' reagent","Biuret reagent","Molisch reagent"],"a":1},{"q":"Complete combustion of a hydrocarbon in excess oxygen mainly forms:","o":["CO₂ and H₂O","Carbon and hydrogen","CO only","Methane and oxygen"],"a":0},{"q":"Which petroleum fraction generally contains lower-boiling hydrocarbons?","o":["Bitumen","Lubricating oil","Heavy residue","Gasoline/naphtha range"],"a":3},{"q":"Octane number measures petrol resistance to:","o":["Freezing","Engine knocking","Evaporation only","Corrosion only"],"a":1},{"q":"Nitrate in explosive-residue analysis is not conclusive by itself because:","o":["Nitrate has multiple possible sources","All explosives lack nitrogen","Nitrate cannot be measured","Nitrate is always absent from fertilisers"],"a":0},{"q":"Volatile petroleum hydrocarbons are commonly profiled using:","o":["Gas chromatography","Polarising microscopy only","Filtration","Gel electrophoresis"],"a":0},{"q":"Controlled-drug identification in a complex sample should ideally include:","o":["Packaging inspection only","Specific confirmatory instrumental analysis","Colour test only","Odour only"],"a":1},{"q":"A certified reference standard should be stored as directed because:","o":["It makes blanks unnecessary","Stability and assigned value depend on handling","Its identity changes with the bottle","It eliminates all uncertainty"],"a":1},{"q":"Traceability is improved by recording:","o":["Only the final score","No raw data","Only a verbal conclusion","Sample IDs, conditions and calculations"],"a":3},{"q":"A procedural blank helps detect:","o":["Background from reagents and processing","Instrument age exactly","Suspect identity","Sample boiling point"],"a":0},{"q":"Analyte loss during extraction can cause a:","o":["Change in atomic number","Correct result automatically","False low result","False high result always"],"a":2},{"q":"Method validation establishes whether a procedure is:","o":["Independent of all matrices","Error-free in all conditions","Fit for its intended use","Always fastest"],"a":2},{"q":"Which technique is most directly useful for measuring the refractive index of a liquid sample?","o":["Refractometry","Gravimetric filtration","Ion-exchange chromatography","Flame ionisation"],"a":0},{"q":"A broad chromatographic peak with unchanged retention time may indicate reduced:","o":["Solvent density only","Column efficiency","Sample identity","Atomic number"],"a":1},{"q":"In a mass spectrum, a base peak is the peak with:","o":["Exactly 50% intensity","The highest m/z in all cases","The greatest relative intensity","The lowest m/z in all cases"],"a":2},{"q":"A toxicological dose in mg/kg expresses mass of substance per:","o":["Unit body mass","Total body volume","Litre of air only","Minute"],"a":0},{"q":"Carbon monoxide exposure is primarily associated with the:","o":["Intramuscular route","Dermal route only","Respiratory route","Oral route exclusively"],"a":2},{"q":"Ethanol is initially oxidised mainly to:","o":["Acetaldehyde","Oxalic acid","Formaldehyde","Acetone"],"a":0},{"q":"Methanol toxicity is strongly associated with formation of:","o":["Urea","Formate/formic acid","Glucose","Bilirubin"],"a":1},{"q":"Conventional pulse oximetry can be misleading in CO exposure because it may not reliably distinguish:","o":["Glucose from lactate","Carboxyhaemoglobin from oxyhaemoglobin","Plasma from urine","Lead from mercury"],"a":1},{"q":"Which specimen is commonly used to assess recent drug concentration, depending on circumstances?","o":["Blood","Nail only","Clothing swab only","Bone only"],"a":0},{"q":"A positive urine drug screen does not by itself prove impairment because:","o":["Urine contains no metabolites","Urine directly measures brain concentration","All drugs disappear instantly","Detection and impairment are different questions"],"a":3},{"q":"Organophosphate insecticides primarily inhibit:","o":["Carbonic anhydrase only","Acetylcholinesterase","DNA ligase","Pepsin"],"a":1},{"q":"Corrosive acid ingestion mainly causes:","o":["A specific colour in hair","Only sedation","A change in blood group","Chemical tissue injury"],"a":3},{"q":"Blood lead measurement is useful because lead can:","o":["Circulate in blood and distribute to tissues","Remain only in exhaled air","Be found only in hair","Never bind biological components"],"a":0},{"q":"A metabolite can be a biomarker because it may indicate:","o":["Exact brand with certainty","Exposure or biotransformation","Impairment by itself","Exact absorbed dose without context"],"a":1},{"q":"Volatile-analysis specimens should be sealed promptly to reduce:","o":["Evaporative loss and contamination","Oxygen consumption only","Analyte formation","Need for all documentation"],"a":0},{"q":"Collection time matters in toxicology because concentrations change with:","o":["Container colour","The molecular formula","Absorption, distribution and elimination","Blood group only"],"a":2},{"q":"Confirmatory toxicology tests are used to improve:","o":["Specificity of identification","Sample toxicity","Need to omit controls","Undocumented uncertainty"],"a":0},{"q":"LD₅₀ is the dose causing death in 50% of a specified test population under stated:","o":["All possible conditions","No conditions","Only human conditions","Experimental conditions"],"a":3},{"q":"A negative toxicology result most directly means the target was:","o":["Never present in the body","Impossible as an exposure","Absent from every tissue","Not detected above the method's capability in that sample"],"a":3},{"q":"Which preservation condition is generally important for many biological toxicology specimens?","o":["Appropriate temperature and documented storage","Unsealed storage in sunlight","Mixing all exhibits together","Repeated thawing without records"],"a":0},{"q":"A broken seal or label discrepancy should be:","o":["Silently corrected","Ignored if the sample looks normal","Removed from the record","Documented and escalated under evidence procedures"],"a":3},{"q":"Chain-of-custody records trace:","o":["Guilt automatically","Instrument wavelength","Possession and handling of evidence","Molecular formula"],"a":2},{"q":"Separate packaging of trace exhibits reduces:","o":["Analytical specificity","Need for labels","All uncertainty","Cross-transfer and contamination"],"a":3},{"q":"A control sample in a forensic batch monitors:","o":["Exhibit market value","Motive","Suspect identity","Method performance"],"a":3},{"q":"A positive presumptive stain test should be treated as:","o":["Proof of source","Exact stain-age measurement","A screening indication requiring suitable confirmation","Conclusive identification of a person"],"a":2},{"q":"Proficiency testing evaluates:","o":["Report font","Suspect motive","Exhibit price","Laboratory/analyst performance"],"a":3},{"q":"A broken exhibit seal on receipt should first be:","o":["Documented and handled under receipt procedures","Resealed without note","Ignored","Assigned a new collection date"],"a":0},{"q":"An evidence label should link the package to:","o":["A source conclusion","Analyst's theory only","Exhibit identity and collection documentation","A guaranteed result"],"a":2},{"q":"A forensic report separates observations from interpretation so readers can assess:","o":["Nothing about method","Only the analyst's confidence","Basis and limits of conclusions","Guilt automatically"],"a":2},{"q":"A forensic laboratory uses duplicate analyses mainly to assess:","o":["Repeatability and possible analytical inconsistency","The evidence's market value","The suspect's motive","Whether a compound has a colour"],"a":0},{"q":"Proteins are polymers of:","o":["Nucleotides only","Glucose units only","Amino-acid residues","Fatty acids only"],"a":2},{"q":"The primary structure of a protein is its:","o":["Three-dimensional fold only","Subunit arrangement only","Carbohydrate content","Amino-acid sequence"],"a":3},{"q":"Sucrose consists of:","o":["Glucose and galactose","Glucose and fructose","Two glucose units","Ribose and phosphate"],"a":1},{"q":"The principal storage polysaccharide in animals is:","o":["Pectin","Chitin","Glycogen","Cellulose"],"a":2},{"q":"A major structural lipid in cell membranes is:","o":["Wax only","Free fatty acid only","Phospholipid","Triacylglycerol only"],"a":2},{"q":"RNA usually contains:","o":["Amino acids instead of bases","Deoxyribose and thymine only","Ribose and uracil","No phosphate"],"a":2},{"q":"Enzymes that transfer functional groups are:","o":["Isomerases only","Hydrolases","Ligases only","Transferases"],"a":3},{"q":"A competitive inhibitor commonly causes:","o":["Increased apparent Km with Vmax potentially unchanged","Enzyme to become substrate","Km and Vmax always double","Vmax always zero"],"a":0},{"q":"Phase I drug metabolism includes:","o":["Oxidation, reduction or hydrolysis","Only glucuronidation","Only filtration","Only excretion without chemical change"],"a":0},{"q":"Conjugation in drug metabolism often:","o":["Always increases lipid solubility","Prevents renal excretion","Removes all functional groups","Increases polarity and may facilitate excretion"],"a":3},{"q":"Which chemical class includes morphine and codeine?","o":["Opioid alkaloids","Simple carbohydrates","Inorganic anions","Steroid hormones only"],"a":0}];
+
+function show(id){["candidate","instructions","exam","result"].forEach(x=>document.getElementById(x).classList.toggle("hidden",x!==id));}
+function continueExam(){student=document.getElementById("studentName").value.trim();if(!student)return alert("Please enter Name of Student.");document.getElementById("topbar").classList.remove("hidden");document.getElementById("topName").textContent=student;show("instructions");}
+document.getElementById("agree").onchange=e=>document.getElementById("startBtn").disabled=!e.target.checked;
+function startExam(){start=Date.now();seconds=3600;document.getElementById("timer").textContent="60:00";show("exam");render();timer=setInterval(tick,1000);}
+function tick(){seconds--;document.getElementById("timer").textContent=String(Math.floor(seconds/60)).padStart(2,"0")+":"+String(seconds%60).padStart(2,"0");if(seconds<=300)document.getElementById("timer").classList.add("danger");if(seconds<=0){clearInterval(timer);finish();}}
+function render(){visited[i]=true;document.getElementById("qno").textContent="Question "+(i+1)+" of 100";document.getElementById("qtext").textContent=QUESTIONS[i].q;document.getElementById("reviewBadge").textContent=marked[i]?"Marked for Review":"";let o=document.getElementById("options");o.innerHTML="";QUESTIONS[i].o.forEach((x,j)=>{let d=document.createElement("div");d.className="option"+(answers[i]===j?" selected":"");d.innerHTML='<span class="radio">'+String.fromCharCode(65+j)+'</span><span>'+esc(x)+'</span>';d.onclick=()=>{answers[i]=j;render()};o.appendChild(d)});palette();}
+function palette(){let p=document.getElementById("palette");p.innerHTML="";QUESTIONS.forEach((_,j)=>{let b=document.createElement("button");b.className="pal";if(j===i)b.classList.add("current");if(marked[j])b.classList.add("mark");else if(answers[j]!==null)b.classList.add("ans");else if(visited[j])b.classList.add("vis");b.textContent=j+1;b.onclick=()=>{i=j;render()};p.appendChild(b)});}
+function clearAns(){answers[i]=null;render()} function prevQ(){if(i>0){i--;render()}} function nextQ(){if(i<99){i++;render()}else submitConfirm()} function markNext(){marked[i]=true;if(i<99){i++;render()}else palette();}
+function submitConfirm(){if(confirm("Submit Test?"))finish()}
+function finish(){if(record)return;clearInterval(timer);let c=0,w=0;QUESTIONS.forEach((q,j)=>{if(answers[j]===null)return;answers[j]===q.a?c++:w++});let sk=100-c-w,score=c-w*.25,ts=Math.min(3600,Math.round((Date.now()-start)/1000));record={name:student,score:+score.toFixed(2),correct:c,wrong:w,skipped:sk,timeSeconds:ts,submittedAt:new Date().toISOString()};document.getElementById("resultName").textContent="Student: "+student;document.getElementById("score").innerHTML=score.toFixed(2)+' <small>/ 100</small>';document.getElementById("attempted").textContent=c+w;document.getElementById("correct").textContent=c;document.getElementById("wrong").textContent=w;document.getElementById("skipped").textContent=sk;document.getElementById("accuracy").textContent=((c/(c+w||1))*100).toFixed(1)+"%";review();show("result");saveRecord();}
+function review(){let r=document.getElementById("review");r.innerHTML="";QUESTIONS.forEach((q,j)=>{let d=document.createElement("div");d.className="review-item";let st=answers[j]===null?"Unattempted":answers[j]===q.a?"Correct":"Incorrect";d.innerHTML='<div class="review-q">Q'+(j+1)+'. '+esc(q.q)+'</div><b>'+st+'</b>'+q.o.map((x,k)=>'<div class="review-opt '+(k===q.a?'correct ':'')+(answers[j]===k&&k!==q.a?'wrong':'')+'"><b>'+String.fromCharCode(65+k)+'.</b> '+esc(x)+(k===q.a?' ✓ Correct Answer':'')+(answers[j]===k&&k!==q.a?' ✗ Your Answer':'')+'</div>').join("");r.appendChild(d)})}
+function storageKey(){return "dsssb_jSA_chemistry_mock24_local_cache";}
+
+function fmt(sec){
+  sec=Math.max(0,Number(sec)||0);
+  const m=Math.floor(sec/60);
+  const s=sec%60;
+  return String(m).padStart(2,"0")+":"+String(s).padStart(2,"0");
+}
+
+function sort(a){
+  return (a||[]).map(x=>({
+    id:x.id||"",
+    name:String(x.name||x.student_name||"Student"),
+    score:Number(x.score)||0,
+    correct:Number(x.correct)||0,
+    wrong:Number(x.wrong)||0,
+    skipped:x.skipped!=null?Number(x.skipped):Math.max(0,100-(Number(x.correct)||0)-(Number(x.wrong)||0)),
+    timeSeconds:x.time_seconds!=null?Number(x.time_seconds):Number(x.timeSeconds)||0,
+    submittedAt:x.submitted_at||x.submittedAt||""
+  })).sort((a,b)=>b.score-a.score||b.correct-a.correct||a.timeSeconds-b.timeSeconds);
+}
+
+async function getCentralLeaderboard(){
+  // Uses a SECURITY DEFINER RPC created by the supplied SQL patch.
+  // This makes leaderboard reads independent of browser SELECT/RLS quirks.
+  const rows=await apiFetch("rpc/get_mock_leaderboard",{
+    method:"POST",
+    body:JSON.stringify({p_mock_id:MOCK_ID})
+  });
+  return sort(rows||[]);
+}
+
+async function submitCentralRecord(){
+  // Uses a SECURITY DEFINER RPC for controlled server-side insertion.
+  return await apiFetch("rpc/submit_mock_attempt",{
+    method:"POST",
+    body:JSON.stringify({
+      p_mock_id:MOCK_ID,
+      p_student_name:record.name,
+      p_score:record.score,
+      p_correct:record.correct,
+      p_wrong:record.wrong,
+      p_skipped:record.skipped,
+      p_time_seconds:record.timeSeconds,
+      p_submitted_at:record.submittedAt
+    })
+  });
+}
+
+function renderLB(a){
+  a=sort(a);
+  let pos=-1;
+  if(record){
+    pos=a.findIndex(x=>x.name===record.name&&
+      x.score===record.score&&x.correct===record.correct&&
+      x.wrong===record.wrong&&x.timeSeconds===record.timeSeconds);
+  }
+  document.getElementById("myRank").textContent=pos<0?"—":String(pos+1);
+  document.getElementById("totalParticipants").textContent=String(a.length);
+  document.getElementById("percentile").textContent=
+    pos<0?"—":(a.length<=1?"100.00%":(((a.length-pos-1)/(a.length-1))*100).toFixed(2)+"%");
+  document.getElementById("timeTaken").textContent=record?fmt(record.timeSeconds):"—";
+  document.getElementById("leaderboardBody").innerHTML=a.map((x,j)=>
+    '<tr class="'+(pos===j?'me':'')+'"><td>'+(j+1)+'</td><td>'+esc(x.name)+
+    '</td><td>'+x.score.toFixed(2)+'</td><td>'+x.correct+'</td><td>'+
+    x.wrong+'</td><td>'+fmt(x.timeSeconds)+'</td></tr>'
+  ).join("");
+}
+
+async function saveRecord(){
+  // Never block the exam result. Show local result immediately, then sync centrally.
+  try{
+    const cached=JSON.parse(localStorage.getItem(storageKey())||"[]");
+    cached.push(record);
+    localStorage.setItem(storageKey(),JSON.stringify(sort(cached)));
+  }catch(e){}
+  renderLB([record]);
+
+  try{
+    await submitCentralRecord();
+    const all=await getCentralLeaderboard();
+    renderLB(all);
+    hideCentralNotice();
+  }catch(e){
+    console.error(e);
+    showCentralNotice("Central leaderboard sync failed: "+(e.message||e));
+  }
+}
+
+async function refreshRemote(){
+  try{
+    const all=await getCentralLeaderboard();
+    renderLB(all);
+    hideCentralNotice();
+    return all;
+  }catch(e){
+    showCentralNotice("Central leaderboard error: "+(e.message||e));
+    return [];
+  }
+}
+
+function showCentralNotice(msg){
+  let n=document.getElementById("centralNotice");
+  if(!n){
+    n=document.createElement("div");
+    n.id="centralNotice";
+    n.style.cssText="margin:12px 0;padding:12px 14px;border-radius:10px;background:#fff4e5;border:1px solid #ffd59a;color:#7a4b00;font-size:13px";
+    const card=document.querySelector(".lb-card");
+    if(card)card.insertBefore(n,card.firstChild);
+  }
+  n.textContent=msg;
+  n.classList.remove("hidden");
+}
+function hideCentralNotice(){
+  const n=document.getElementById("centralNotice");
+  if(n)n.classList.add("hidden");
+}
+
+async function testCentralConnection(){
+  try{
+    const rows=await getCentralLeaderboard();
+    alert("SUCCESS — central leaderboard is working.\n\nMock Test - 24 entries visible to this device: "+rows.length);
+  }catch(e){
+    alert("LEADERBOARD CONNECTION ERROR\n\n"+(e.message||e));
+  }
+}
+
+function openAdmin(){
+  document.getElementById("adminPanel").classList.remove("hidden");
+  document.getElementById("adminBody").innerHTML=
+    '<div class="admin-login"><h3>Admin Login</h3>'+
+    '<p>View all Mock Test - 24 student ranks without attempting the mock.</p>'+
+    '<input id="adminPass" type="password" placeholder="Admin password">'+
+    '<button class="btn btn-primary" onclick="adminLogin()">View Ranks</button> '+
+    '<button class="btn" onclick="testCentralConnection()">Test Connection</button></div>';
+}
+function closeAdmin(){document.getElementById("adminPanel").classList.add("hidden");}
+
+async function adminLogin(){
+  const pass=document.getElementById("adminPass").value;
+  if(!pass)return alert("Please enter admin password.");
+  document.getElementById("adminBody").innerHTML="<p>Verifying admin access…</p>";
+  try{
+    const rows=await apiFetch("rpc/admin_get_mock_leaderboard",{
+      method:"POST",
+      body:JSON.stringify({p_mock_id:MOCK_ID,p_password:pass})
+    });
+    const a=sort(Array.isArray(rows)?rows:[]);
+    document.getElementById("adminBody").innerHTML=
+      '<div style="margin-bottom:15px"><b>Total Participants: '+a.length+
+      '</b> <button class="btn" onclick="adminLogin()">Refresh</button> '+
+      '<button class="btn" onclick="exportCSV()">Export CSV</button></div>'+
+      '<div class="admin-table-wrap"><table class="admin-table"><thead><tr>'+
+      '<th>Rank</th><th>Student Name</th><th>Score</th><th>Correct</th>'+
+      '<th>Wrong</th><th>Unattempted</th><th>Time</th><th>Submitted</th></tr></thead><tbody>'+
+      (a.length?a.map((x,j)=>'<tr><td class="admin-rank">'+(j+1)+'</td><td>'+esc(x.name)+
+      '</td><td><b>'+x.score.toFixed(2)+'</b></td><td>'+x.correct+'</td><td>'+x.wrong+
+      '</td><td>'+x.skipped+'</td><td>'+fmt(x.timeSeconds)+'</td><td>'+
+      (x.submittedAt?new Date(x.submittedAt).toLocaleString():"—")+'</td></tr>').join(""):
+      '<tr><td colspan="8">No submissions yet.</td></tr>')+
+      '</tbody></table></div>';
+  }catch(e){
+    document.getElementById("adminBody").innerHTML=
+      '<p style="color:#b42318"><b>Central leaderboard error:</b><br>'+esc(e.message||e)+
+      '</p><p>Run the supplied one-time SQL fix in Supabase SQL Editor, then press Refresh.</p>';
+  }
+}
+
+async function exportCSV(){
+  try{
+    const pass=prompt("Enter admin password to export CSV:");
+    if(!pass)return;
+    const rows=await apiFetch("rpc/admin_get_mock_leaderboard",{
+      method:"POST",
+      body:JSON.stringify({p_mock_id:MOCK_ID,p_password:pass})
+    });
+    const a=sort(Array.isArray(rows)?rows:[]);
+    let s="Rank,Student Name,Score,Correct,Wrong,Unattempted,Time,Submitted At\n";
+    a.forEach((x,j)=>s+=(j+1)+',"'+String(x.name).replaceAll('"','""')+'",'+x.score+','+x.correct+','+x.wrong+','+x.skipped+','+fmt(x.timeSeconds)+',"'+x.submittedAt+'"\n');
+    const z=document.createElement("a");
+    z.href=URL.createObjectURL(new Blob([s],{type:"text/csv"}));
+    z.download="DSSSB_JSA_Chemistry_Mock_Test_24_Central_Leaderboard.csv";
+    z.click();
+    setTimeout(()=>URL.revokeObjectURL(z.href),1000);
+  }catch(e){alert("Could not export leaderboard: "+(e.message||e));}
+}
+function esc(s){return String(s).replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]))}
+</script> </html>
